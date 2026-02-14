@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb, #ff6a00);
+        }
+
+        .weather-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            width: 380px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .weather-container h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .search-box {
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            padding: 12px;
+            width: 70%;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            background: #ff9a00;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background: #ff3c00;
+            transform: scale(1.05);
+        }
+
+        .weather-card {
+            margin-top: 20px;
+        }
+
+        .weather-card h2 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .weather-card p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="weather-container">
+        <h1>🌤 Weather Forecast</h1>
+
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="getWeather()">Search</button>
+        </div>
+
+        <div class="weather-card">
+            <h2 id="cityName">City Name</h2>
+            <p id="temperature">Temperature: -- °C</p>
+            <p id="condition">Condition: --</p>
+            <p id="humidity">Humidity: -- %</p>
+        </div>
+    </div>
+
+    <script>
+        function getWeather() {
+            var city = document.getElementById("cityInput").value;
+
+            if(city === "") {
+                alert("Please enter a city name");
+                return;
+            }
+
+            // Demo Data
+            document.getElementById("cityName").innerHTML = city;
+            document.getElementById("temperature").innerHTML = "Temperature: 25°C";
+            document.getElementById("condition").innerHTML = "Condition: Sunny";
+            document.getElementById("humidity").innerHTML = "Humidity: 60%";
+        }
+    </script>
+
+</body>
+</html>
+
